@@ -118,7 +118,13 @@ wordpress/*
 wordpress/wp-admin/*
 wordpress/wp-content/*
 wordpress/wp-includes/*
-!wordpress/wp-content/themes/twentynineteen/single.php
+!/wordpress/wp-content/themes/twentynineteen/single.php
+
+# Curso 01 - Altera Rodapé
+!/wordpress/wp-content/plugins/curso01_altera_rodape/*
+!/wordpress/wp-content/themes/twentynineteen/footer.php
+
+
 
 # Material do Curso WORDPRESS
 #!wordpress/wp-content/plugins/[plugin_name]
