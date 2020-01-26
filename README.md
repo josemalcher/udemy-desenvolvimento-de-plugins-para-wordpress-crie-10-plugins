@@ -28,37 +28,65 @@ Aprenda a planejar, desenvolver e publicar plugins para WordPress com profission
 20. [Aulas extras](#parte20)     
 ---
 
-
 ## <a name="parte1">1 - Introdução</a>
 
-
+- CMS - GLP
 
 [Voltar ao Índice](#indice)
 
 ---
-
 
 ## <a name="parte2">2 - Baixando o Wordpress e configurando e ambiente de desenvolvimento</a>
 
-
+- https://br.wordpress.org/download/
+- XAMPP
+- Editor ou IDE
 
 [Voltar ao Índice](#indice)
 
 ---
-
 
 ## <a name="parte3">3 - Conhecendo os Plugins do WordPress</a>
 
-
-
 [Voltar ao Índice](#indice)
 
 ---
 
-
 ## <a name="parte4">4 - Apresentação do LOOP WordPress</a>
 
+- wordpress/wp-content/themes/twentynineteen/single.php
 
+- https://developer.wordpress.org/themes/basics/template-tags/
+
+```php
+            /* Exemplos de Loop para aula 08 */
+
+            //query_posts('posts_per_page=3&order=DESC');
+            //query_posts('post_status=draft');
+            //query_posts('tag_id=3');
+            //query_posts('cat=4,5');
+
+            /* ex1  LOOP */
+//            global $wpdb;
+//            $sql = "SELECT * FROM $wpdb->posts WHERE post_status = 'publish'";
+//            $listaDados = $wpdb->get_results($sql);
+//            //print_r($listaDados);
+//
+//            foreach ($listaDados as $value) {
+//                echo '<h3>' . $value->post_title . '</h3>';
+//                echo $value->post_content;
+//            }
+            /* ex1  END LOOP */
+
+            /* ex2  LOOP */
+             $myPosts = new WP_Query('posts_per_page=2&orderby=rand');
+             while ($myPosts->have_posts()) : $myPosts->the_post();
+                 echo '<h3>' . the_title() . '</h3>';
+                 echo the_content();
+             endwhile;
+            /* ex2 END  LOOP */
+
+```
 
 [Voltar ao Índice](#indice)
 
