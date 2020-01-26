@@ -132,6 +132,32 @@ add_action('wp_footer','altera_rodape_footer');
 
 ## <a name="parte6">6 - Hooks - Actions e Filters</a>
 
+- **Actions - podem personalizar nossas funções**
+- https://codex.wordpress.org/Plugin_API/Action_Reference
+```php
+
+function alert_teste(){
+    if(is_user_logged_in()){
+        echo "<script>alert(" . get_current_user_id() .")</script>";
+    }
+}
+add_action('init', 'alert_teste');
+```
+
+- **Filters - capturar dados antes de ser inserido no banco ou exibido na página**
+- https://codex.wordpress.org/Plugin_API/Filter_Reference
+
+```php
+function my_filter($value, $id){
+    $value = '[*** '. $value . ' ***]';
+    return $value;
+}
+add_filter( 'the_title', 'my_filter', 10,2 );
+// 10 =< prioridade em compração aos outros filtros que estão sendo executados
+// 2 => quantidade de parâmetros que a função personalizada aceita
+```
+
+
 
 
 [Voltar ao Índice](#indice)
