@@ -123,6 +123,7 @@ wordpress/wp-includes/*
 # Curso 01 - Altera Rodapé
 !/wordpress/wp-content/plugins/curso01_altera_rodape/*
 !/wordpress/wp-content/plugins/curso02_painel_personalizado/*
+!/wordpress/wp-content/plugins/curso03_filmes_reviews/*
 !/wordpress/wp-content/themes/twentynineteen/footer.php
 
 

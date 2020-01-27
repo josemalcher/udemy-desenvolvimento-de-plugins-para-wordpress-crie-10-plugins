@@ -37,11 +37,11 @@ get_header();
             /* ex1  END LOOP */
 
             /* ex2  LOOP */
-             $myPosts = new WP_Query('posts_per_page=2&orderby=rand');
-             while ($myPosts->have_posts()) : $myPosts->the_post();
-                 echo '<h3>' . the_title() . '</h3>';
-                 echo the_content();
-             endwhile;
+//             $myPosts = new WP_Query('posts_per_page=2&orderby=rand');
+//             while ($myPosts->have_posts()) : $myPosts->the_post();
+//                 echo '<h3>' . the_title() . '</h3>';
+//                 echo the_content();
+//             endwhile;
             /* ex2 END  LOOP */
 
 
