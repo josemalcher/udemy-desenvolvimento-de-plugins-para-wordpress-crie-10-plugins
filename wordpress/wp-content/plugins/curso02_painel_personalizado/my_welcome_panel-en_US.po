@@ -1,0 +1,43 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Curso 02 - Painel Personalizado\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-27 19:15+0000\n"
+"PO-Revision-Date: 2020-01-27 19:17+0000\n"
+"Last-Translator: josemalcher <suporte@josemalcher.net>\n"
+"Language-Team: English (United States)\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.1; wp-5.3.2"
+
+#: curso02_painel_personalizado.php:60
+msgid "Bem vindo ao Painel administrativo"
+msgstr "Welcome to the Administrative Panel"
+
+#. Name of the plugin
+msgid "Curso 02 - Painel Personalizado"
+msgstr "Course 02 - Custom Panel"
+
+#. Description of the plugin
+msgid "Exemplo 02 do curso - Painel personalizado"
+msgstr "Course example 02 - Custom panel"
+
+#. URI of the plugin
+msgid "http://#"
+msgstr "http://#"
+
+#. Author URI of the plugin
+msgid "https://josemalcher.net"
+msgstr "https://josemalcher.net"
+
+#. Author of the plugin
+msgid "José Malcher Junior"
+msgstr "José Malcher Junior"
+
+#: curso02_painel_personalizado.php:61
+msgid "Siga nossas redes sociais"
+msgstr "Follow our social networks"
