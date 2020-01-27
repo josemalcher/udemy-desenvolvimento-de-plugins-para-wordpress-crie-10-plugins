@@ -9,6 +9,7 @@ Author URI: https://josemalcher.net
 License: GPLv2 or later
 Text Domain: exemplo
 */
+
 /*
 remove_action('welcome_panel', 'wp_welcome_panel');
 function my_welcome_panel(){
@@ -45,7 +46,9 @@ class Curso02Painel
     {
         // desativa a action welcome_panel
         remove_action('welcome_panel', 'wp_welcome_panel');
-        add_action('welcome_panel', array($this, 'my_welcome_panel'));
+
+        add_action('welcome_panel',         array($this, 'my_welcome_panel'));
+        add_action('admin_enqueue_scripts', array($this, 'add_css'));
     }
 
     public function my_welcome_panel()
@@ -56,16 +59,20 @@ class Curso02Painel
             <p>Siga nossas redes sociais</p>
             <div id="icons">
                 <a href="#" target="_blank">
-                    <img src="<?=plugins_url() ?>/curso02_painel_personalizado/img/facebook-circle-color.png"
+                    <img src="<?=plugin_dir_url(__FILE__) ?>img/facebook-circle-color.png"
                          alt="Facebook">
                 </a>
                 <a href="#">
-                    <img src="<?=plugins_url() ?>/curso02_painel_personalizado/img/youtube-circle-color.png"
+                    <img src="<?=plugin_dir_url(__FILE__) ?>img/youtube-circle-color.png"
                          alt="Youtube">
                 </a>
             </div>
         </div>
         <?php
+    }
+    public function add_css(){
+        wp_register_style('meu-segundo-plugin', plugin_dir_url(__FILE__). 'css/meu-segundo-plugin.css');
+        wp_enqueue_style( 'meu-segundo-plugin');
     }
 }
 Curso02Painel::getInstance();
