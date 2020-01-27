@@ -498,6 +498,46 @@ register_activation_hook( __FILE__, 'FilmesReviews::activate' );
 
 ```
 
+- 24 Registrando Taxonomias
+
+```php
+<?php
+
+// ....
+	private function __construct() {
+		add_action( 'init', 'FilmesReviews::register_post_type' );
+		add_action( 'init', 'FilmesReviews::register_taxonomies' );
+		add_action( 'tgmpa_register', array( $this, 'check_required_plugins' ) );
+	}
+
+// ....
+
+
+	public static function register_taxonomies() {
+		register_taxonomy( 'tipos_filmes', array( 'filmes_reviews' ),
+			array(
+				'labels'       => array(
+					'name'          => __( 'Filmes Tipos' ),
+					'singular_name' => __( 'Filme Tipo' ),
+				),
+				'public'       => true,
+				'hierarchical' => true,
+				'rewrite'      => array( 'slug' => 'tipos-filmes' ),
+			)
+
+		);
+	}
+
+// ....
+
+public static function activate() {
+		self::register_post_type();
+		self::register_taxonomies();
+		flush_rewrite_rules();
+	}
+
+```
+
 [Voltar ao Índice](#indice)
 
 ---

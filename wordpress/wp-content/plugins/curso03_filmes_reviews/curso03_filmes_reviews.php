@@ -26,6 +26,7 @@ class FilmesReviews {
 
 	private function __construct() {
 		add_action( 'init', 'FilmesReviews::register_post_type' );
+		add_action( 'init', 'FilmesReviews::register_taxonomies' );
 		add_action( 'tgmpa_register', array( $this, 'check_required_plugins' ) );
 	}
 
@@ -49,6 +50,21 @@ class FilmesReviews {
 			'menu_icon'     => 'dashicons-format-video',
 			'menu_position' => 3,
 		) );
+	}
+
+	public static function register_taxonomies() {
+		register_taxonomy( 'tipos_filmes', array( 'filmes_reviews' ),
+			array(
+				'labels'       => array(
+					'name'          => __( 'Filmes Tipos' ),
+					'singular_name' => __( 'Filme Tipo' ),
+				),
+				'public'       => true,
+				'hierarchical' => true,
+				'rewrite'      => array( 'slug' => 'tipos-filmes' ),
+			)
+
+		);
 	}
 
 	/*
@@ -159,6 +175,7 @@ class FilmesReviews {
 
 	public static function activate() {
 		self::register_post_type();
+		self::register_taxonomies();
 		flush_rewrite_rules();
 	}
 
