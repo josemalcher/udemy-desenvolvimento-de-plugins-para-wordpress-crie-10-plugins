@@ -77,10 +77,9 @@ get_header();
 				if ( comments_open() || get_comments_number() ) {
 					comments_template();
 				}
-
 			endwhile; // End of the loop.
 			?>
-
+            <?php echo the_meta(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
