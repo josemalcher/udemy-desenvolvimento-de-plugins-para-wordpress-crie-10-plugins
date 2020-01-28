@@ -30,6 +30,10 @@ class FilmesReviews {
 		add_action( 'init', 'FilmesReviews::register_taxonomies' );
 		add_action( 'tgmpa_register', array( $this, 'check_required_plugins' ) );
 		add_filter( 'rwmb_meta_boxes', array( $this, 'metabox_custom_fields' ) );
+
+		/*TEMPLATE*/
+		add_action( 'template_include', array( $this, 'add_cpt_template' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'add_style_scripts' ) );
 	}
 
 	public static function register_post_type() {
@@ -201,6 +205,7 @@ class FilmesReviews {
 
 					'name' => __( 'Diretor', 'filmes-reviews' ),
 					'desc' => __( 'Quem dirigiu o filme', 'filmes-reviews' ),
+					'id'   => self::FIELD_PREFIX . 'filme_diretor',
 					'type' => 'text',
 					'std'  => '',
 
@@ -221,37 +226,38 @@ class FilmesReviews {
 
 		$meta_boxes[] = array(
 
-			'id'        => 'review_data',
-			'title'     => __('Filme Review','filmes-reviews'),
-			'pages'     => array('filmes_reviews'),
-			'context'   => 'side',
-			'priority'  => 'high',
-			'fields'    => array(
+			'id'       => 'review_data',
+			'title'    => __( 'Filme Review', 'filmes-reviews' ),
+			'pages'    => array( 'filmes_reviews' ),
+			'context'  => 'side',
+			'priority' => 'high',
+			'fields'   => array(
 
 				array(
-					'name' => __('Rating','filmes-reviews'),
-					'desc' => __('Em uma escala de 1 - 10 , sendo que 10 é a melhor nota','filmes-reviews'),
-					'id'   => self::FIELD_PREFIX.'review_rating',
-					'type' => 'select',
+					'name'    => __( 'Rating', 'filmes-reviews' ),
+					'desc'    => __( 'Em uma escala de 1 - 10 , sendo que 10 é a melhor nota', 'filmes-reviews' ),
+					'id'      => self::FIELD_PREFIX . 'review_rating',
+					'type'    => 'select',
 					'options' => array(
 
-						'' => __('Avalie Aqui','filmes-reviews'),
-						1  => __('1 - Gostei um pouco','filmes-reviews'),
-						2  => __('2 - Eu gostei mais ou menos','filmes-reviews'),
-						3  => __('3 - Não recomendo','filmes-reviews'),
-						4  => __('4 - Deu pra assistir tudo','filmes-reviews'),
-						5  => __('5 - Filme decente','filmes-reviews'),
-						6  => __('6 - Filme legal','filmes-reviews'),
-						7  => __('7 - Legal, recomendo','filmes-reviews'),
-						8  => __('8 - O meu favorito','filmes-reviews'),
-						9  => __('9 - Amei um dos meus melhores filmes','filmes-reviews'),
-						10 => __('10 - O melhor filme de todos os tempos, recomendo!!','filmes-reviews'),
+						'' => __( 'Avalie Aqui', 'filmes-reviews' ),
+						1  => __( '1 - Gostei um pouco', 'filmes-reviews' ),
+						2  => __( '2 - Eu gostei mais ou menos', 'filmes-reviews' ),
+						3  => __( '3 - Não recomendo', 'filmes-reviews' ),
+						4  => __( '4 - Deu pra assistir tudo', 'filmes-reviews' ),
+						5  => __( '5 - Filme decente', 'filmes-reviews' ),
+						6  => __( '6 - Filme legal', 'filmes-reviews' ),
+						7  => __( '7 - Legal, recomendo', 'filmes-reviews' ),
+						8  => __( '8 - O meu favorito', 'filmes-reviews' ),
+						9  => __( '9 - Amei um dos meus melhores filmes', 'filmes-reviews' ),
+						10 => __( '10 - O melhor filme de todos os tempos, recomendo!!', 'filmes-reviews' ),
 
 					),
-					'std' => '',
+					'std'     => '',
 				),
 			)
 		);
+
 		return $meta_boxes;
 	}
 
@@ -261,6 +267,29 @@ class FilmesReviews {
 		self::register_post_type();
 		self::register_taxonomies();
 		flush_rewrite_rules();
+	}
+
+	/*TEMPLATE*/
+	function add_cpt_template( $template ) {
+
+		if ( is_singular( 'filmes_reviews' ) ) {
+
+			if ( file_exists( get_stylesheet_directory() . 'single-filme_review.php' ) ) {
+
+				return get_stylesheet_directory() . 'single-filme_review.php';
+
+			}
+
+			return plugin_dir_path( __FILE__ ) . 'single-filme_review.php';
+		}
+
+		return $template;
+
+	}
+
+	function add_style_scripts() {
+
+		wp_enqueue_style( 'filme-review-style', plugin_dir_url( __FILE__ ) . 'filme-review.css' );
 	}
 
 }
