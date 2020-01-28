@@ -15,6 +15,7 @@ class FilmesReviews {
 
 	private static $instance;
 	const TEXT_PLUGIN = "curso03_filmes_reviews";
+	const FIELD_PREFIX = 'fr_'; // metabox
 
 	public static function getInstance() {
 		if ( self::$instance == null ) {
@@ -28,6 +29,7 @@ class FilmesReviews {
 		add_action( 'init', 'FilmesReviews::register_post_type' );
 		add_action( 'init', 'FilmesReviews::register_taxonomies' );
 		add_action( 'tgmpa_register', array( $this, 'check_required_plugins' ) );
+		add_filter( 'rwmb_meta_boxes', array( $this, 'metabox_custom_fields' ) );
 	}
 
 	public static function register_post_type() {
@@ -172,6 +174,55 @@ class FilmesReviews {
 		);
 		tgmpa( $plugins, $config );
 	}
+
+	/* META BOX */
+
+	public function metabox_custom_fields() {
+
+		$meta_boxes[] = array(
+
+			'id'       => 'data_filme',
+			'title'    => __( 'Informações Adicionais', 'filmes-reviews' ),
+			'pages'    => array( 'filmes_reviews', 'post' ),
+			'context'  => 'normal',
+			'priority' => 'high',
+			'fields'   => array(
+
+				array(
+					'name' => __( 'Ano de laçamento', 'filmes-reviews' ),
+					'desc' => __( 'Ano que o filme foi lançano', 'filmes-reviews' ),
+					'id'   => self::FIELD_PREFIX . 'filme_ano',
+					'type' => 'number',
+					'std'  => date( 'Y' ),
+					'min'  => '1880',
+
+				),
+				array(
+
+					'name' => __( 'Diretor', 'filmes-reviews' ),
+					'desc' => __( 'Quem dirigiu o filme', 'filmes-reviews' ),
+					'type' => 'text',
+					'std'  => '',
+
+				),
+				array(
+
+					'name' => 'Site',
+					'desc' => 'Link do site do filme',
+					'id'   => self::FIELD_PREFIX . 'filme_site',
+					'type' => 'url',
+					'std'  => '',
+
+				),
+
+			)
+
+		);
+
+		return $meta_boxes;
+	}
+
+	/* FIM META BOX */
 
 	public static function activate() {
 		self::register_post_type();

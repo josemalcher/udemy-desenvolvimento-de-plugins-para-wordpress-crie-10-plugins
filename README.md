@@ -538,6 +538,64 @@ public static function activate() {
 
 ```
 
+### 27 - Campos personalizados com Meta BOX
+
+```php
+const FIELD_PREFIX = 'fr_'; // metabox
+
+add_filter( 'rwmb_meta_boxes', array( $this, 'metabox_custom_fields' ) );
+
+
+	/* META BOX */
+
+	public function metabox_custom_fields() {
+
+		$meta_boxes[] = array(
+
+			'id'       => 'data_filme',
+			'title'    => __( 'Informações Adicionais', 'filmes-reviews' ),
+			'pages'    => array( 'filmes_reviews', 'post' ),
+			'context'  => 'normal',
+			'priority' => 'high',
+			'fields'   => array(
+
+				array(
+					'name' => __( 'Ano de laçamento', 'filmes-reviews' ),
+					'desc' => __( 'Ano que o filme foi lançano', 'filmes-reviews' ),
+					'id'   => self::FIELD_PREFIX . 'filme_ano',
+					'type' => 'number',
+					'std'  => date( 'Y' ),
+					'min'  => '1880',
+
+				),
+				array(
+
+					'name' => __( 'Diretor', 'filmes-reviews' ),
+					'desc' => __( 'Quem dirigiu o filme', 'filmes-reviews' ),
+					'type' => 'text',
+					'std'  => '',
+
+				),
+				array(
+
+					'name' => 'Site',
+					'desc' => 'Link do site do filme',
+					'id'   => self::FIELD_PREFIX . 'filme_site',
+					'type' => 'url',
+					'std'  => '',
+
+				),
+
+			)
+
+		);
+
+		return $meta_boxes;
+	}
+
+	/* FIM META BOX */
+```
+
 [Voltar ao Índice](#indice)
 
 ---
