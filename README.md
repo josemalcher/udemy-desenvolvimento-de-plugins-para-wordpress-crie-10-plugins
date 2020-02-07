@@ -1187,6 +1187,7 @@ Meu_youtube::getInstance();
 
 ## <a name="parte12">12 - Conhecendo as tabelas do Wordpress</a>
 
+- https://codex.wordpress.org/Database_Description
 
 
 [Voltar ao Índice](#indice)
