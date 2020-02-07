@@ -1159,6 +1159,25 @@ Meu_youtube::getInstance();
 
 ## <a name="parte11">11 - Wordpress Options API</a>
 
+- wordpress\wp-content\themes\twentyfifteen\header.php
+
+```php
+<?php 
+	/*  Atualiza Email do Admin */
+	//update_option('admin_email', 'contato@josemalcher.net');
+
+	/*Adicionar option*/
+	//add_option("facebook","Valor_de_teste");
+
+	
+	echo "<h1>". get_option('blogname')  ."</h1><br>";
+	echo "<h1>". get_option('admin_email')  ."</h1><br>";
+	echo "<h1>". get_option('facebook')  ."</h1><br>";
+	
+?>
+```
+
+
 
 
 [Voltar ao Índice](#indice)

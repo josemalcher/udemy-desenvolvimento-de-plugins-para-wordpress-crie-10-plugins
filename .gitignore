@@ -116,16 +116,17 @@ modules.xml
 ### WordPress ###
 wordpress/*
 wordpress/wp-admin/*
-wordpress/wp-content/*
+wordpress/wp-content/
 wordpress/wp-includes/*
 !/wordpress/wp-content/themes/twentynineteen/single.php
 
-# Curso 01 - Altera Rodapé
+# Arquivos do Curso
 !/wordpress/wp-content/plugins/curso01_altera_rodape/*
 !/wordpress/wp-content/plugins/curso02_painel_personalizado/*
 !/wordpress/wp-content/plugins/curso03_filmes_reviews/*
 !/wordpress/wp-content/plugins/curso04_minhas-redes-sociais/*
 !/wordpress/wp-content/themes/twentynineteen/footer.php
+!/wordpress/wp-content/themes/twentyfifteen/header.php
 
 
 
