@@ -129,6 +129,7 @@ wordpress/wp-includes/*
 !wordpress/wp-content/themes/twentyfifteen/header.php
 !wordpress/wp-content/plugins/Curso07_protecao_login/*
 !wordpress/wp-content/plugins/Curso08_media_unzip/*
+!wordpress/wp-content/plugins/Curso09-quickTag/*
 
 !wordpress/wp-content/plugins/curso06_meu_twitter/
 !wordpress/wp-content/plugins/Curso06_Meu_twitter_me/
