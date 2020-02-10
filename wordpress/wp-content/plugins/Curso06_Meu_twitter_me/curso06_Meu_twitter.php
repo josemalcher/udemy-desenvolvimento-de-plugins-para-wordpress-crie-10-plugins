@@ -9,7 +9,8 @@ Author URI: https://josemalcher.net
 Text Domain: meu-twitter
 License: GPL2
 */
-
+//if(!defined('ABSPATH')) exit;
+if(!defined('ABSPATH')) header("Location:http://localhost");
 class curso06_Meu_twitter {
 	private static $instance;
 
