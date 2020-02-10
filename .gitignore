@@ -127,6 +127,7 @@ wordpress/wp-includes/*
 !/wordpress/wp-content/plugins/curso04_minhas-redes-sociais/*
 !/wordpress/wp-content/themes/twentynineteen/footer.php
 !/wordpress/wp-content/themes/twentyfifteen/header.php
+!/wordpress/wp-content/plugins/Curso07_protecao_login/*
 
 !wordpress/wp-content/plugins/curso06_meu_twitter/
 !wordpress/wp-content/plugins/Curso06_Meu_twitter_me/
