@@ -1611,7 +1611,7 @@ Meu_quicktag::getInstance();
 
 ## <a name="parte17">17 - Décimo Plugin - Newsletter</a>
 
-
+- wordpress/wp-content/plugins/Curso10-newslatter/Curso10-newslatter.php
 
 [Voltar ao Índice](#indice)
 

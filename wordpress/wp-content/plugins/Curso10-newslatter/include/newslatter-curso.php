@@ -22,12 +22,12 @@ class Newslatter_Curso_Widget extends WP_Widget {
 		echo $args['after_title'];
 
 		$script_mailer = "/Curso10-newslatter/include/newslatter-curso-mailer.php";
-		?>
 
+
+		echo '
         <div id="form-msg">
-
         </div>
-        <form id="subscriber-form" method="post" action="<?php echo plugins_url() . $script_mailer; ?>">
+        <form id="subscriber-form" method="post" action="' . plugins_url(). $script_mailer .'">
             <div class="form-group">
                 <label for="name">Nome: </label>
                 <input type="text" id="name" name="name" class="form-control" required>
@@ -37,14 +37,14 @@ class Newslatter_Curso_Widget extends WP_Widget {
                 <input type="text" id="email" name="email" class="form-control" required>
             </div>
             <br>
-            <input type="hidden" name="recipient" value="<?php $instance['recipient']; ?>">
-            <input type="hidden" name="subject" value="<?php $instance['subject']; ?>">
+            <input type="hidden" id="recipient" name="recipient" value="'. $instance['recipient'] .' ">
+            <input type="hidden" id="subject" name="subject" value="'. $instance['subject'].' ">
             <input type="submit" class="btn btn-primaty" name="subscriber_submit" value="Inscreva-se">
 
         </form>
         <br>
+       ';
 
-		<?php
 
 
 	}
